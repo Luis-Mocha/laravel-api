@@ -1,0 +1,45 @@
+<?php
+
+namespace App\Models\Admin;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+// importo helper per la mia funzione
+use Illuminate\Support\Str;
+
+
+class Project extends Model
+{
+    use HasFactory;
+
+
+    // funzione custom
+    public static function generateSlug($title)
+    {
+        return Str::slug($title, '-');
+    }
+
+
+    protected $table = 'projects';
+
+    protected $fillable = [
+        'title',
+        'type_id',
+        'slug',
+        'description',
+        'cover_img',
+        'link_project',
+    ];
+
+    // Funzione per specificare la relazione con la tabella Types (one to many)
+    public function type() {
+        return $this->belongsTo(Type::class);
+    }
+
+    // Funzione per specificare la relazione con la tabella Tecnolgies (many to many)
+    public function technologies() {
+        return $this->belongsToMany(Technology::class);
+    }
+
+}
