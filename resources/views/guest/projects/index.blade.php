@@ -79,7 +79,7 @@
                 <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                     <a href="{{ route('projects.show' , $elem->slug ) }}" class="h-100 d-flex flex-column justify-content-between">
 
-                        <img src="{{ asset('storage/' . $elem->cover_img) }}" class="img-fluid" alt="...">
+                        <img src="{{ asset('storage/' . $elem->cover_img) }}" class="img-test" alt="...">
 
                         <div class="fs-3">{{$elem['title']}}</div>
 
