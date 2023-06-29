@@ -24,3 +24,5 @@ use Illuminate\Support\Facades\Route;
 // localhost:8000/api
 // localhost:8000/api/projects
 Route::get('/projects', [ProjectController::class, 'index']);
+
+Route::get('/projects/{slug}', [ProjectController::class, 'show']);
