@@ -30,14 +30,14 @@ class UpdateProjectRequest extends FormRequest
             'type_id' => 'nullable|exists:types,id',
             'title' => [
                 'required',
-                Rule::unique('projects')->ignore($this->id),
+                Rule::unique('projects')->ignore($this->route('project')),
             ],
             'description' => 'nullable',
             'cover_img' => 'nullable|image',
             'link_project' => [
                 'nullable',
                 'url',
-                Rule::unique('projects')->ignore($this->id),
+                Rule::unique('projects')->ignore($this->route('project')),
             ]
         ];
     }
