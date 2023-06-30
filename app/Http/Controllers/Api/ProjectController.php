@@ -35,7 +35,7 @@ class ProjectController extends Controller
             return response()->json([
                 'success' => false,
                 'error' => 'Non risulta alcun post'
-            ]);
+            ])->setStatusCode(404);
         }
 
         
